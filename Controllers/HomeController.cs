@@ -26,7 +26,7 @@ namespace DemoApp.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FileUpload(IFormFile file)
+        public IActionResult FileUpload(IFormFile file)
         {
             var lines = new List<string>();
             using (StreamReader streamReader = new StreamReader(file.OpenReadStream()))
@@ -35,20 +35,13 @@ namespace DemoApp.Controllers
                 while ((line = streamReader.ReadLine()) != null)
                     lines.Add(line);
             }
-            var stats = TextCalculations(lines);
+            var stats = new Stats(lines);
 
-            return Ok(View("Stats", stats));
+            return View("Stats", stats);
         }
 
-        private Stats TextCalculations(List<string> lines)
-        {
-            return new Stats();
-        }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

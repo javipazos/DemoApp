@@ -1,7 +1,31 @@
-﻿
+﻿@model Stats
 @{
     ViewData["Title"] = "Stats";
 }
 
 <h1>Stats</h1>
+<div>
+    @Html.LabelFor(m => m.WordCount, "Words: ")
+    @Model.WordCount
+</div>
+<div>
+    @Html.LabelFor(m => m.LineCount, "Lines: ")
+    @Model.LineCount
+</div>
+<div>
+    @Html.LabelFor(m => m.MeanLettersPerWord, "Mean: ")
+    @Model.MeanLettersPerWord
+</div>
+<div>
+    @Html.LabelFor(m => m.ModeLettersPerWord, "Mode: ")
+    @Model.ModeLettersPerWord
+</div>
+<div>
+    @Html.LabelFor(m => m.MedianLettersPerWord, "Median: ")
+    @Model.MedianLettersPerWord
+</div>
+<div>
+    @Html.LabelFor(m => m.MostCommonLetter, "Most common letter: ")
+    @Model.MostCommonLetter
+</div>
 
